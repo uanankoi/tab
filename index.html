@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        ul{
+            list-style: none;
+        }
+        ul li{
+            float: left;
+        }
+        li a{
+            display: block;
+            width: 80px;
+            height: 80px;
+            margin-left: 10px;
+            background-color: rgb(167, 10, 10);
+            color: cornsilk;
+        }
+        nav{
+            width: 100vw;
+            height: 100px;
+            /* margin: 50px; */
+        }
+        section{
+            width: 100vw;
+            height: 200px;
+            position: relative;
+        }
+        .box{
+            width: 100%;
+            height: 100%;
+            background-color: rgb(37, 102, 139);
+            border: 1px solid black;
+            position: absolute;
+            color: cornsilk;
+            font-size: 10rem;
+        }
+        .action{
+            border: 3px red dashed;
+        }
+        .down{
+            width: 100vw;
+            height: 80px;
+        }
+        .nono{
+            display: none;
+        }
+    </style>
+  </head>
+  <body>
+      <nav>
+          <ul class="one">
+              <li><a href="">logo</a></li>
+              <li><a href="" class="bar">#1</a></li>
+              <li><a href="" class="bar">#2</a></li>
+              <li><a href="" class="bar">#3</a></li>
+              <li><a href="" class="bar">#4</a></li>
+              <li><a href="" class="bb">members</a></li>
+          </ul>
+      </nav>
+      <section class="a">
+          <div class="box">#1內文</div>
+          <div class="box">#2內容</div>
+          <div class="box">#3內文</div>
+          <div class="box">#4文</div>
+      </section>
+      <br>
+      <nav class="down">
+          <ul class="two">
+              <li><a href="#99">#99</a></li>
+              <li><a href="#98">#98</a></li>
+              <li><a href="#97">#97</a></li>
+              <li><a href="#96">#96</a></li>
+          </ul>
+      </nav>
+      <section class="b">
+          <div class="box" id="99">#99文</div>
+          <div class="box nono" id="98">#98文</div>
+          <div class="box nono" id="97">#97文</div>
+          <div class="box nono" id="96">#96文</div>
+      </section>
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        $('ul.one li').click(function(e){
+           let num =$(this).index();
+           e.preventDefault();
+           if(num == 0 || num == 5){
+               console.log('no');
+           }else{
+            $('.a .box').removeClass('action').css({'z-index':'11'})
+            $(".a .box:eq("+(num-1)+")").addClass('action').css({'z-index':'55'});
+           }
+           
+        });
+        $('ul.two li a').click(function(e){
+           e.preventDefault();
+           let now = $(this).attr('href');
+           $('.b .box').addClass('nono');
+           $(now).removeClass('nono');
+           console.log($(this).attr('href'))
+        });
+    </script>
+  </body>
+</html>
